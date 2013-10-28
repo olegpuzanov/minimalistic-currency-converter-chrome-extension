@@ -1,0 +1,25 @@
+{
+  "manifest_version": 2,
+  "name": "Simple Currency Converter",
+  "version": "0.1",
+  
+  "description": "Simple currency converter powered by unofficial Google Calculator API",
+  "author": "Oleg Puzanov",
+
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },  
+
+  "browser_action": {
+    "default_icon": "icons/icon.png", 
+    "default_title": "Simple Currency Converter",
+    "default_popup": "popup.html"
+  }, 
+
+  "permissions": [
+    "http://www.google.com/",
+    "storage"
+  ]
+}
