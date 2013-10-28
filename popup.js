@@ -5,7 +5,7 @@ var CurrencyConvertor = {
    * @type {string}
    * @private
    */
-  url: 'http://www.google.com/ig/calculator?q=%amount%%from%=?%to%',
+  url: 'http://www.google.com/ig/calculator?hl=en&q=%amount%%from%=?%to%',
 
   /**
    * @public
@@ -39,12 +39,20 @@ var CurrencyConvertor = {
    * @private
    */
   showResult: function (e) {
-    // add double quotes to keys to get valid json and then parse JSON
-    var response = JSON.parse(e.target.responseText.replace('lhs', '"lhs"')
-                                                   .replace('rhs', '"rhs"')
-                                                   .replace('error', '"error"')
-                                                   .replace('icc', '"icc"'));
-    document.getElementById('result').innerHTML = response.rhs;
+    // if response is not empty - process it, otherwise show error message
+    if ( e.target.responseText != '' ) {
+      // add double quotes to keys to get valid json and then parse JSON
+      var response = JSON.parse(e.target.responseText.replace('lhs', '"lhs"')
+                                                     .replace('rhs', '"rhs"')
+                                                     .replace('error', '"error"')
+                                                     .replace('icc', '"icc"'));
+      // round to the second decimal place
+      response.rhs = response.rhs.replace(/((?:[1-9]\d*|0)?(?:\.\d+)?)/, CurrencyConvertor.roundValue);;
+
+      document.getElementById('result').innerHTML = response.rhs;     
+    } else {
+      document.getElementById('result').innerHTML = 'oops something went wrong';
+    }
   },
 
   /**
@@ -60,6 +68,10 @@ var CurrencyConvertor = {
       evnt.returnValue = false;
       if(evnt.preventDefault) evnt.preventDefault();
     }
+   },
+
+   roundValue: function(v) {
+    return Math.round(parseFloat(v) * 100) / 100;
    }
 };
 
