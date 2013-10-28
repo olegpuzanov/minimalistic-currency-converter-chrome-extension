@@ -1,9 +1,9 @@
 {
   "manifest_version": 2,
-  "name": "Simple Currency Converter",
+  "name": "Minimalistic Currency Converter",
   "version": "0.1",
   
-  "description": "Simple currency converter powered by unofficial Google Calculator API",
+  "description": "Minimalistic currency converter powered by Google Calculator API",
   "author": "Oleg Puzanov",
 
   "icons": {
@@ -14,7 +14,7 @@
 
   "browser_action": {
     "default_icon": "icons/icon.png", 
-    "default_title": "Simple Currency Converter",
+    "default_title": "Minimalistic Currency Converter",
     "default_popup": "popup.html"
   }, 
 
