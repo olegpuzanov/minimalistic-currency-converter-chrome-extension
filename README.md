@@ -1,6 +1,8 @@
 Minimalistic Currency Converter
 ================================================
 
+Google Chrome Webstore - https://chrome.google.com/webstore/detail/minimalistic-currency-con/aiafoccppaapomjkjcebphbdobfibfpb
+
 Minimalistic currency converter based on undocumented Google Calculator API
 
 Click on a button with dollar sign in your browser toolbar to convert any amount between 88 currencies.
