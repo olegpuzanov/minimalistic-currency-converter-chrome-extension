@@ -1,4 +1,4 @@
-Minimalistic Currency Converter - Google Chrome extension
+Minimalistic Currency Converter
 ================================================
 
 Minimalistic currency converter based on undocumented Google Calculator API
