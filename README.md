@@ -3,10 +3,14 @@ Minimalistic Currency Converter
 
 Google Chrome Webstore - https://chrome.google.com/webstore/detail/minimalistic-currency-con/aiafoccppaapomjkjcebphbdobfibfpb
 
-Minimalistic currency converter based on undocumented Google Calculator API
+Minimalistic currency converter powered by free Open Exchange Rates API
 
 Click on a button with dollar sign in your browser toolbar to convert any amount between 88 currencies.
 
-Google Currency Conversion Disclaimer
+Disclaimer
 
-Google cannot guarantee the accuracy of the exchange rates used by the calculator. You should confirm current rates before making any transactions that could be affected by changes in the exchange rates. Foreign currency rates provided by Citibank N.A. and displayed under license. Rates are for information purposes only and are subject to change without notice. Rates for actual transactions may vary, and Citibank is not offering to enter into any transaction at any rate displayed.
+Exchange rates are provided for informational purposes only, and do not constitute financial advice of any kind. Although every attempt is made to ensure quality, NO guarantees are given whatsoever of accuracy, validity, availability, or fitness for any purpose - please use at your own risk. All usage is subject to your acceptance of the Terms and Conditions of Service, available at: https://openexchangerates.org/terms/
+
+License
+
+Data sourced from various providers with public-facing APIs; copyright may apply; resale is prohibited; no warranties given of any kind. All usage is subject to your acceptance of the License Agreement available at: https://openexchangerates.org/license/
