@@ -5,7 +5,7 @@ var CurrencyConvertor = {
    * @type {string}
    * @private
    */
-  url: 'http://www.google.com/ig/calculator?hl=en&q=%amount%%from%=?%to%',
+  url: 'http://olegpuzanov.com/tools/rates/index.php?amount=%amount%&from=%from%&to=%to%',
 
   /**
    * @public
@@ -27,7 +27,7 @@ var CurrencyConvertor = {
     var url = this.url.replace('%amount%', amount)
                       .replace('%from%', from)
                       .replace('%to%', to);
-    
+
     var req = new XMLHttpRequest();
     req.open("GET", url, true);
     req.onload = this.showResult.bind(this);
@@ -41,15 +41,7 @@ var CurrencyConvertor = {
   showResult: function (e) {
     // if response is not empty - process it, otherwise show error message
     if ( e.target.responseText != '' ) {
-      // add double quotes to keys to get valid json and then parse JSON
-      var response = JSON.parse(e.target.responseText.replace('lhs', '"lhs"')
-                                                     .replace('rhs', '"rhs"')
-                                                     .replace('error', '"error"')
-                                                     .replace('icc', '"icc"'));
-      // round to the second decimal place
-      response.rhs = response.rhs.replace(/((?:[1-9]\d*|0)?(?:\.\d+)?)/, CurrencyConvertor.roundValue);;
-
-      document.getElementById('result').innerHTML = response.rhs;     
+      document.getElementById('result').innerHTML = JSON.parse(e.target.responseText);
     } else {
       document.getElementById('result').innerHTML = 'oops something went wrong';
     }

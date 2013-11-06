@@ -1,9 +1,9 @@
 {
   "manifest_version": 2,
   "name": "Minimalistic Currency Converter",
-  "version": "0.1",
+  "version": "0.2",
   
-  "description": "Minimalistic currency converter powered by Google Calculator API",
+  "description": "Minimalistic currency converter powered by free Open Exchange Rates API",
   "author": "Oleg Puzanov",
 
   "icons": {
@@ -19,7 +19,6 @@
   }, 
 
   "permissions": [
-    "http://www.google.com/",
     "storage"
   ]
 }
