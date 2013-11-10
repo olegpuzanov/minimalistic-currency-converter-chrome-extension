@@ -5,7 +5,7 @@ var CurrencyConvertor = {
    * @type {string}
    * @private
    */
-  url: 'http://olegpuzanov.com/tools/rates/index.php?amount=%amount%&from=%from%&to=%to%',
+  url: 'http://olegpuzanov.com/tools/rates/index.php?amount=%amount%&from=%from%&to=%to%&s_thousands=%s_thousands%&s_decimal=%s_decimal%',
 
   /**
    * @public
@@ -15,8 +15,14 @@ var CurrencyConvertor = {
     var from = document.getElementById('from').value;
     var to = document.getElementById('to').value;
 
+    var s_thousands = localStorage["s_thousands"] || ',';
+    var s_decimal = localStorage["s_decimal"] || '.';
+
+    var regex = new RegExp("[^0-9-" + s_decimal + "]", ["g"]);
+    amount = parseFloat(("" + amount).replace(/\((.*)\)/, "-$1").replace(regex, '').replace(s_decimal, '.'));
+
     // clear results container by setting blank space to avoid content jumping
-    document.getElementById('result').innerHTML = '&nbsp;';
+    document.getElementById('result').innerHTML = 'loading ...';
 
     // save amount, from and to values to local stogare
     chrome.storage.local.set({'amount': amount});
@@ -26,7 +32,9 @@ var CurrencyConvertor = {
     // set parameters for api url
     var url = this.url.replace('%amount%', amount)
                       .replace('%from%', from)
-                      .replace('%to%', to);
+                      .replace('%to%', to)
+                      .replace('%s_thousands%', s_thousands)
+                      .replace('%s_decimal%', s_decimal);
 
     var req = new XMLHttpRequest();
     req.open("GET", url, true);
@@ -55,15 +63,14 @@ var CurrencyConvertor = {
     var evnt = e || window.event;
     var key = evnt.keyCode || evnt.which;
     key = String.fromCharCode(key);
-    var regex = /[0-9]|\./;
+
+    var format = localStorage["format"];
+    var regex = /[0-9]|\.|\,|\s/;
+
     if( !regex.test(key) ) {
       evnt.returnValue = false;
       if(evnt.preventDefault) evnt.preventDefault();
     }
-   },
-
-   roundValue: function(v) {
-    return Math.round(parseFloat(v) * 100) / 100;
    }
 };
 

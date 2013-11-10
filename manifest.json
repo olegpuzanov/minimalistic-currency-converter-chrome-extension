@@ -1,7 +1,7 @@
 {
   "manifest_version": 2,
   "name": "Minimalistic Currency Converter",
-  "version": "0.2",
+  "version": "0.4",
   
   "description": "Minimalistic currency converter powered by free Open Exchange Rates API",
   "author": "Oleg Puzanov",
@@ -16,7 +16,9 @@
     "default_icon": "icons/icon.png", 
     "default_title": "Minimalistic Currency Converter",
     "default_popup": "popup.html"
-  }, 
+  },
+
+  "options_page": "options.html",
 
   "permissions": [
     "storage"
